@@ -1,23 +1,7 @@
-import { Button, divider } from "@nextui-org/react";
-import * as actions from "@/actions";
-import { auth } from "@/auth";
-import Profile from "@/components/profile";
-
-export default async function Home() {
-  const session = await auth();
-  
+export default function Home() {
   return (
     <div>
-      <form action={actions.signIn}>
-        <Button type="submit">Sign in</Button>
-      </form>
-      <form action={actions.signOut}>
-        <Button type="submit">Sign out</Button>
-      </form>
-
-      {session?.user ? <div>{JSON.stringify(session.user)}</div> : <div>Signed out</div>}
-
-      <Profile />
+      Home page
     </div>
   );
 }
