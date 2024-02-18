@@ -4,11 +4,11 @@ import {
   NavbarBrand,
   NavbarContent,
   NavbarItem,
-  Input,
 } from "@nextui-org/react";
 // import { auth } from "@/auth";
 // import * as actions from "@/actions";
 import HeaderAuth from "./header-auth";
+import SearchInput from "./search-input";
 
 export default async function Header() {
   // const session = await auth();
@@ -21,7 +21,7 @@ export default async function Header() {
       </NavbarBrand>
       <NavbarContent justify="center">
         <NavbarItem>
-          <Input placeholder="Search" />
+          <SearchInput />
         </NavbarItem>
       </NavbarContent>
       <NavbarContent justify="end">
