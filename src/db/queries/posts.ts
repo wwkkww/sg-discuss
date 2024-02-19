@@ -36,3 +36,20 @@ export function fetchTopPost(): Promise<PostWithData[]> {
     take: 5
   });
 }
+
+
+export function fetchPostsBySearchTerm(searchTerm: string): Promise<PostWithData[]> {
+  return db.post.findMany({
+    where: {
+      OR: [
+        { title: { contains: searchTerm } },
+        { content: { contains: searchTerm } }
+      ]
+    },
+    include: {
+      topic: { select: { slug: true } },
+      user: { select: { name: true } },
+      _count: { select: { comments: true } },
+    }
+  });
+}
